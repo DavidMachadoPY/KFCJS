@@ -24,8 +24,6 @@ let imgSlogan = document.createElement('img');
 imgSlogan.setAttribute('id', 'slogan');
 imgSlogan.setAttribute('src', 'img/slogan.png');
 
-/* img.setAttribute('', alt);
-img.setAttribute('', srcser); */
 colSlogan.appendChild(imgSlogan);
 
 //---------------------------------//
@@ -123,59 +121,79 @@ let rowCardone = document.createElement('div');
 rowCardone.classList.add('row');
 container2.appendChild(rowCardone);
 
-// SE CREA UNA COLUMNA DE 3x4 ES DECIR 4 CARD POR ROW (1)
-let colCard = document.createElement('div');
-colCard.classList.add('col-md-3', 'col-sm-6', 'mt-5');
-rowCardone.appendChild(colCard);
+function generatedCard(img, nameProduct, price, description) {
 
-// SE CREA LAS CARD (1)
-let cardP = document.createElement('div');
-cardP.classList.add('card', 'p-2', 'mb-5');
-colCard.appendChild(cardP);
+    // SE CREA UNA COLUMNA DE 3x4 ES DECIR 4 CARD POR ROW (1)
+    let colCard = document.createElement('div');
+    colCard.classList.add('col-md-3', 'col-sm-6', 'mt-5');
+    rowCardone.appendChild(colCard);
 
-// SE CREA E INSERTA UNA IMAGEN PARA LA CARD (1)
-let imgH = document.createElement('img');
-imgH.classList.add('card-img-top');
-imgH.setAttribute('src', './img/hamburguesa-1.webp');
-imgH.setAttribute('alt', '...');
-cardP.appendChild(imgH);
+    // SE CREA LAS CARD (1)
+    let cardP = document.createElement('div');
+    cardP.classList.add('card', 'p-2', 'mb-5');
+    colCard.appendChild(cardP);
 
-// SE CREA UN CONTENEDOR PARA LAS EL TEXTO Y BTN
-let cardTextBody = document.createElement('div');
-cardTextBody.classList.add('card-body');
-cardP.appendChild(cardTextBody);
+    // SE CREA E INSERTA UNA IMAGEN PARA LA CARD (1)
+    let imgH = document.createElement('img');
+    imgH.classList.add('card-img-top');
+    imgH.setAttribute('src', img);
+    imgH.setAttribute('alt', '...');
+    cardP.appendChild(imgH);
 
-// SE CREA UNA ETIQUETA h3 PARA LA PRIMERA LINA DE TEXTO
-let cardTextTittle1 = document.createElement('h3');
-cardTextTittle1.classList.add('card-tittle');
-cardTextBody.appendChild(cardTextTittle1);
-cardTextTittle1.textContent = "Big Box Nuggets";
+    // SE CREA UN CONTENEDOR PARA LAS EL TEXTO Y BTN
+    let cardTextBody = document.createElement('div');
+    cardTextBody.classList.add('card-body');
+    cardP.appendChild(cardTextBody);
 
-// SE CREA UNA ETIQUETA h5 PARA LA SEGUNDA LINEA DE TEXTO
-let cardTextTittle2 = document.createElement('h5');
-cardTextTittle2.classList.add('card-tittle');
-cardTextBody.appendChild(cardTextTittle2);
-cardTextTittle2.textContent ="$ 27.900";
+    // SE CREA UNA ETIQUETA h3 PARA LA PRIMERA LINA DE TEXTO
+    let cardTextTittle1 = document.createElement('h3');
+    cardTextTittle1.classList.add('card-tittle');
+    cardTextBody.appendChild(cardTextTittle1);
+    cardTextTittle1.textContent = nameProduct;
 
-// SE CREA UNA ETIQUETA p PARA LA TERCERA LINEA DE TEXTO
-let cardTextText = document.createElement('p');
-cardTextText.classList.add('card-tittle');
-cardTextBody.appendChild(cardTextText);
-cardTextText.textContent = "5 Nuggets + 5 Hot Wings (Las alitas picantes hot wings equivalen a un trozo de ala); + 1 Ensalada Coleslaw Personal + 1 Papa Pequeña+ 1 Gaseosa Pet 400 ml + 1 Salsa BBQ"
+    // SE CREA UNA ETIQUETA h5 PARA LA SEGUNDA LINEA DE TEXTO
+    let cardTextTittle2 = document.createElement('h5');
+    cardTextTittle2.classList.add('card-tittle');
+    cardTextBody.appendChild(cardTextTittle2);
+    cardTextTittle2.textContent = price;
 
-// SE CREA UN BOTON PARA CARD
-let cardBtn = document.createElement('a');
-cardBtn.classList.add('btn', 'btn-danger');
-cardBtn.setAttribute('href', '#');
-cardTextBody.appendChild(cardBtn);
-cardBtn.textContent = "Comprar"
+    // SE CREA UNA ETIQUETA p PARA LA TERCERA LINEA DE TEXTO
+    let cardTextText = document.createElement('p');
+    cardTextText.classList.add('card-tittle');
+    cardTextBody.appendChild(cardTextText);
+    cardTextText.textContent = description;
 
-// SE CREA UNA ROW (2)
-let rowCardtwo = document.createElement('div');
-rowCardtwo.classList.add('row');
-container2.appendChild(rowCardtwo);
+    // SE CREA UN BOTON PARA CARD
+    let cardBtn = document.createElement('a');
+    cardBtn.classList.add('btn', 'btn-danger');
+    cardBtn.setAttribute('href', '#');
+    cardTextBody.appendChild(cardBtn);
+    cardBtn.textContent = "Comprar"
 
-// CASRDS......
+        // SE CREA UNA ROW (2)
+    let rowCardtwo = document.createElement('div');
+    rowCardtwo.classList.add('row');
+    container2.appendChild(rowCardtwo);
+
+}
+
+generatedCard('./img/hamburguesa-1.webp', "Big Box Nuggets Especial", "$27.900", "5 Nuggets + 5 Hot Wings + Ensalada Coleslaw Personal + Papa Pequeña + Gaseosa Pet 400 ml + Salsa BBQ")
+
+generatedCard('./img/hamburguesa-2.webp', "Combo Irresistible Big Box", "$27.900", "5 Nuggets + 5 Hot Wings + Ensalada Coleslaw para una persona + Papa tamaño pequeño + Refresco Pet de 400 ml + Salsa BBQ incluida")
+
+generatedCard('./img/hamburguesa-3.webp', "Big Box Nuggets Completo", "$27.900", "5 Deliciosos Nuggets + 5 Hot Wings + Ensalada Coleslaw Individual + Papa pequeña + Gaseosa de 400 ml + Salsa BBQ")
+
+generatedCard('./img/hamburguesa-4.webp', "Oferta Especial Big Box Nuggets", "$27.900", "5 Unidades de Nuggets + 5 Hot Wings + Ensalada Coleslaw para 1 persona + Papa tamaño reducido + Bebida Pet 400 ml + Salsa BBQ")
+
+generatedCard('./img/hamburguesa-5.webp', "Combo Big Box para Compartir", "$27.900", "5 Nuggets + 5 Alitas Hot Wings + Ensalada Coleslaw individual + Papa pequeña + Gaseosa Pet de 400 ml + Salsa BBQ")
+
+generatedCard('./img/hamburguesa-6.webp', "Promoción Big Box Nuggets", "$27.900", "5 Nuggets + 5 Hot Wings + Ensalada Coleslaw Personal + Papa pequeña + Bebida de 400 ml + Salsa BBQ")
+
+generatedCard('./img/hamburguesa-7.webp', "Oferta Exclusiva Big Box", "$27.900", "5 Nuggets + 5 Hot Wings + Ensalada Coleslaw para uno + Papa de tamaño pequeño + Gaseosa 400 ml + Salsa BBQ incluida")
+
+generatedCard('./img/hamburguesa-8.webp', "Combo Big Box Económico", "$27.900", "5 Nuggets + 5 Hot Wings + Ensalada Coleslaw Individual + Papa pequeña + Gaseosa 400 ml + Salsa BBQ")
+
+// CARDS......
 
 //------------------------------------//
 
