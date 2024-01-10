@@ -79,12 +79,13 @@ rowSelectLenguajes.appendChild(colSelectTheme);
 let selectTheme = document.createElement('select');
 selectTheme.classList.add('form-select');
 selectTheme.setAttribute('id', 'theme')
+selectTheme.setAttribute('onchange', 'cambioTema()')
 selectTheme.setAttribute('aria-label', 'Default select example');
 colSelectTheme.appendChild(selectTheme);
 
 // SE CREA EL LA ETIQUETA OPTION PARA SELECT (TEMA)
 let optionTheme1 = document.createElement('option');
-optionTheme1.setAttribute('selected', 'selected');
+optionTheme1.setAttribute('value', ' ');
 optionTheme1.textContent = "Seleccionar Tema"
 selectTheme.appendChild(optionTheme1);
 
@@ -102,7 +103,7 @@ selectTheme.appendChild(optionTheme3);
 
 // SE CREA EL LA ETIQUETA OPTION PARA SELECT (TEMA)
 let optionTheme4 = document.createElement('option');
-optionTheme4.setAttribute('value', 2);
+optionTheme4.setAttribute('value', 3);
 optionTheme4.textContent = "libre"
 selectTheme.appendChild(optionTheme4);
 
@@ -179,7 +180,7 @@ function generatedCard(img, nameProduct, price, description) {
 
 generatedCard('./img/hamburguesa-1.webp', "Big Box Nuggets Especial", "$27.900", "5 Nuggets + 5 Hot Wings + Ensalada Coleslaw Personal + Papa Pequeña + Gaseosa Pet 400 ml + Salsa BBQ")
 
-generatedCard('./img/hamburguesa-2.webp', "Combo Irresistible Big Box", "$27.900", "5 Nuggets + 5 Hot Wings + Ensalada Coleslaw para una persona + Papa tamaño pequeño + Refresco Pet de 400 ml + Salsa BBQ incluida")
+generatedCard('./img/hamburguesa-2.webp', "Combo Irresistible Big Box", "$27.900", "5 Nuggets + 5 Hot Wings + Ensalada Coleslaw para una persona + Papa tamaño pequeño + Refresco Pet de 400 ml")
 
 generatedCard('./img/hamburguesa-3.webp', "Big Box Nuggets Completo", "$27.900", "5 Deliciosos Nuggets + 5 Hot Wings + Ensalada Coleslaw Individual + Papa pequeña + Gaseosa de 400 ml + Salsa BBQ")
 
@@ -246,3 +247,23 @@ InicioLink.textContent = 'COPYRIGHT [R]'
 
 
 
+function cambioTema(){
+    let choise = document.getElementById('theme').value;
+    let body = document.getElementById('body');
+
+    if (choise == 1) {
+        body.classList.toggle('theme-light')
+        body.classList.remove('theme-dark', 'theme-free')
+    
+    } else if (choise == 2) {
+        body.classList.toggle('theme-dark')
+        body.classList.remove('theme-light', 'theme-free')
+        
+    } else {
+        body.classList.toggle('theme-free')
+        body.classList.remove('theme-light', 'theme-dark')
+        
+    }
+    document.getElementById('theme').value = ' '
+        
+}
